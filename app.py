@@ -20,7 +20,7 @@ def getTeacherList(url):
         data['message'] = f"無法連接網站：{err}" 
     if data['status'] == True:
         if response.status_code == 200:
-            teacherList = re.findall(r'<div\sclass="member">(.*?)<div\sclass="teacher-list"', response.text, re.DOTALL)
+            teacherList = re.findall(r'<div\sclass="member">(.*?)<div\sclass="field-items"', response.text, re.DOTALL)
             teachers = []
             for teacher in teacherList:
                 teacher_name = re.findall(r'teacher_rkey.*?>(.*?)<\/a><s', teacher, re.DOTALL)
